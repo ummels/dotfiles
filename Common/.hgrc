@@ -1,0 +1,16 @@
+[ui]
+username = Michael Ummels <michael@ummels.de>
+merge = internal
+
+[extensions]
+convert =
+graphlog =
+rebase =
+color =
+pager =
+
+[diff]
+git = true
+
+[pager]
+pager = LESS='FSRX' less

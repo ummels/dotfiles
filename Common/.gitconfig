@@ -1,0 +1,10 @@
+[core]
+	whitespace = trailing-space,space-before-tab,cr-at-eol
+	pager = less -R -F
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[user]
+	name = Michael Ummels
+	email = michael@ummels.de
+[color]
+	ui = true

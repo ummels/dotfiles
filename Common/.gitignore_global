@@ -1,0 +1,33 @@
+.DS_store
+.localized
+._*
+*~
+.*~
+*.bak
+*.tmp
+*.ini
+*.log
+
+# Ignores for TeX artefacts
+*.aux
+*.blg
+*.ind
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex.gz
+
+# Ignores for binary files
+*.a
+*.o
+*.pyc
+
+# Ignores for Qt projects
+*.pro.user
+debug/
+release/
+*-Debug/
+*-Release/
+*.Debug
+*.Release
