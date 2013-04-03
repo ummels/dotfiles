@@ -31,3 +31,6 @@ release/
 *-Release/
 *.Debug
 *.Release
+
+# Ignores for other build tools
+target/
