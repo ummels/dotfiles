@@ -7,33 +7,39 @@ export OSNAME=${uname%_*}
 # Set default permissions to 700.
 umask 077
 
+typeset -U path
+typeset -U fpath
+
+# Customization for Cygwin
+if [[ $OSNAME == "CYGWIN" ]]; then
+	CYGWIN="nodosfilewarning"
+	path=(/usr/sbin $path)
+fi
+
 # Java
 if [[ $OSNAME == "CYGWIN" ]]; then
 	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_17"
-	PATH="/usr/sbin:$JAVA_HOME/bin:$PATH"
+	path=($JAVA_HOME/bin $path)
 fi
 
 # set PATH so it includes TexLive's bin
 if [[ $OSNAME == "Darwin" ]]; then
-	PATH="/Users/Shared/texlive/2012/bin/x86_64-darwin:$PATH"
+	path=(/Users/Shared/texlive/2012/bin/x86_64-darwin $path)
 elif [[ $OSNAME == "Linux" ]]; then
-	PATH="/home/shared/texlive/2012/bin/x86_64-linux:$PATH"
+	path=(/home/shared/texlive/2012/bin/x86_64-linux $path)
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [[ -d $HOME/bin ]]; then
-	PATH="$HOME/bin:$PATH"
-fi
+# set PATH so it includes user's private bin
+path=(~/bin $path)
 
 # set PATH so it includes executable Python scripts
-if [[ -d /usr/local/share/python ]]; then
-	PATH="/usr/local/share/python:$PATH"
-fi
+path=(/usr/local/share/python $path)
 
 # set PATH so that /usr/local/bin is preferred
-PATH="/usr/local/bin:$PATH"
+path=(/usr/local/bin $path)
 
-export PATH
+# Amend fpath for better completion
+fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
 
 # Set default editor
 export EDITOR=nano
@@ -72,16 +78,14 @@ setopt nobeep correct
 
 # Avoid copying of extended attributes on Darwin
 if [[ $OSNAME == "Darwin" ]]; then
-        export COPYFILE_DISABLE=true
+	export COPYFILE_DISABLE=true
 fi
 
 # Set the default locale
 export LANG=en_GB.UTF-8
 
-# Cygwin stugff
+# SSH agent configuration for Cygwin
 if [[ $OSNAME == "CYGWIN" ]]; then
-	CYGWIN="nodosfilewarning"
-  # Start or use an existing SSH agent
 	if [ -f ~/.ssh-agent ]; then
 		. ~/.ssh-agent > /dev/null
 	fi
