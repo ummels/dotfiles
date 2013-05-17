@@ -10,13 +10,12 @@ umask 077
 typeset -U path
 typeset -U fpath
 
-# Customization for Cygwin
+# set PATH so that /usr/sbin is included under Cygwin
 if [[ $OSNAME == "CYGWIN" ]]; then
-	CYGWIN="nodosfilewarning"
 	path=(/usr/sbin $path)
 fi
 
-# Java
+# set environment variables for Java
 if [[ $OSNAME == "CYGWIN" ]]; then
 	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_17"
 	path=($JAVA_HOME/bin $path)
