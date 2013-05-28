@@ -61,6 +61,11 @@ elif [[ $OSNAME == "Linux" ]]; then
 fi
 alias o=open
 
+# Auto-correction
+if [[ $OSNAME == "CYGWIN" ]]; then
+	alias ping='nocorrect ping' # corrected to PING otherwise.
+fi
+
 # Completion
 autoload -Uz compinit
 compinit
