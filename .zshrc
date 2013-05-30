@@ -20,7 +20,7 @@ fi
 
 # set PATH so it includes TexLive's bin
 if [[ $OSNAME == "Darwin" ]]; then
-	path=(/Users/Shared/texlive/2012/bin/x86_64-darwin $path)
+	path=(/usr/local/texlive/2012/bin/x86_64-darwin $path)
 elif [[ $OSNAME == "Linux" ]]; then
 	path=(/home/shared/texlive/2012/bin/x86_64-linux $path)
 fi
