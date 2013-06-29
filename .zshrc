@@ -14,15 +14,15 @@ fi
 
 # set environment variables for Java
 if [[ $OSNAME == "CYGWIN" ]]; then
-	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_17"
+	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_21"
 	path=($JAVA_HOME/bin $path)
 fi
 
 # set PATH so it includes TexLive's bin
 if [[ $OSNAME == "Darwin" ]]; then
-	path=(/usr/local/texlive/2012/bin/x86_64-darwin $path)
+	path=(/usr/local/texlive/current/bin/x86_64-darwin $path)
 elif [[ $OSNAME == "Linux" ]]; then
-	path=(/home/shared/texlive/2012/bin/x86_64-linux $path)
+	path=(/home/shared/texlive/current/bin/x86_64-linux $path)
 fi
 
 # set PATH so it includes user's private bin
