@@ -1,5 +1,8 @@
 # .zshrc
 
+# Set default permissions to 700
+umask 077
+
 # Determine OS
 uname=$(/usr/bin/uname -s)
 export OSNAME=${uname%_*}
@@ -14,7 +17,7 @@ fi
 
 # set environment variables for Java
 if [[ $OSNAME == "CYGWIN" ]]; then
-	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_21"
+	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_25"
 	path=($JAVA_HOME/bin $path)
 fi
 
@@ -27,9 +30,6 @@ fi
 
 # set PATH so it includes user's private bin
 path=(~/bin $path)
-
-# set PATH so it includes executable Python scripts
-path=(/usr/local/share/python $path)
 
 # set PATH so that /usr/local/bin is preferred
 path=(/usr/local/bin $path)
@@ -94,4 +94,9 @@ if [[ $OSNAME == "CYGWIN" ]]; then
 		ssh-pageant | sed 's/^echo/#echo/' > ~/.ssh-agent
 		. ~/.ssh-agent > /dev/null
 	fi
+fi
+
+# Workaround against a problem with JLine in Cygwin
+if [[ $OSNAME == "CYGWIN" ]]; then
+	export LEIN_JVM_OPTS="-Djline.terminal=jline.UnixTerminal"
 fi
