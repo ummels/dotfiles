@@ -32,5 +32,6 @@ release/
 *.Debug
 *.Release
 
-# Ignores for other build tools
+# Ignores for Leiningen
 target/
+.nrepl-port
