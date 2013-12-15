@@ -35,3 +35,8 @@ release/
 # Ignores for Leiningen
 target/
 .nrepl-port
+
+# Ignores for Android projects
+bin/
+gen/
+local.properties
