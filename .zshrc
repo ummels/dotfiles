@@ -100,3 +100,9 @@ fi
 if [[ $OSNAME == "CYGWIN" ]]; then
 	export LEIN_JVM_OPTS="-Djline.terminal=jline.UnixTerminal"
 fi
+
+# Add ANDROID_HOME under Darwin
+
+if [[ $OSNAME == "Darwin" ]]; then
+	export ANDROID_HOME=/usr/local/opt/android-sdk
+fi
