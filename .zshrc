@@ -97,9 +97,9 @@ if [[ $OSNAME == "CYGWIN" ]]; then
 fi
 
 # Workaround against a problem with JLine in Cygwin
-if [[ $OSNAME == "CYGWIN" ]]; then
-	export LEIN_JVM_OPTS="-Djline.terminal=jline.UnixTerminal"
-fi
+#if [[ $OSNAME == "CYGWIN" ]]; then
+#	export LEIN_JVM_OPTS="-Djline.terminal=jline.UnixTerminal"
+#fi
 
 # Add ANDROID_HOME under Darwin
 
