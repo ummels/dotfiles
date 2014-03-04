@@ -32,11 +32,13 @@ release/
 *.Debug
 *.Release
 
-# Ignores for Leiningen
+# Ignores for Leiningen/SBT
 target/
 .nrepl-port
 
-# Ignores for Android projects
+# Ignores for Ant/Gradle
 bin/
+build/
 gen/
+.gradle/
 local.properties
