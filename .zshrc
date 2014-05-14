@@ -4,7 +4,7 @@
 umask 077
 
 # Determine OS
-uname=$(/usr/bin/uname -s)
+uname=$(uname -s)
 export OSNAME=${uname%_*}
 
 typeset -U path
