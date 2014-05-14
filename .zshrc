@@ -17,7 +17,7 @@ fi
 
 # set environment variables for Java
 if [[ $OSNAME == "CYGWIN" ]]; then
-	export JAVA_HOME="/c/Program Files/Java/jdk1.7.0_45"
+	export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_05"
 	path=($JAVA_HOME/bin $path)
 fi
 
