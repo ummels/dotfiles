@@ -7,8 +7,8 @@
 *.tmp
 *.ini
 *.log
-#*
-.#*
+\#*
+.\#*
 
 # Ignores for TeX artefacts
 *.aux
