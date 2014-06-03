@@ -10,3 +10,13 @@
 	ui = true
 [push]
 	default = upstream
+[alias]
+	a = add
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	dc = diff --cached
+	lg = log -p
+
