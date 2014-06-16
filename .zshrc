@@ -1,8 +1,5 @@
 # .zshrc
 
-# Set default permissions to 700
-umask 077
-
 # Determine OS
 uname=$(uname -s)
 export OSNAME=${uname%_*}
