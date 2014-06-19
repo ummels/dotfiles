@@ -12,9 +12,8 @@ if [[ $OSNAME == "CYGWIN" ]]; then
 	path=(/usr/sbin $path)
 fi
 
-# set environment variables for Java
+# set PATH for Java under Cygwin
 if [[ $OSNAME == "CYGWIN" ]]; then
-	export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_05"
 	path=($JAVA_HOME/bin $path)
 fi
 
