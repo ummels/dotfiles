@@ -20,4 +20,3 @@
 	df = diff
 	dc = diff --cached
 	lg = log -p
-
