@@ -42,8 +42,16 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory incappendhistory histignorealldups
 
-# Aliases
+# Append indictor to ls entries
 alias ls='ls -F'
+#alias ls='ls -F --color=auto'
+
+# Enable color support of grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# More aliases
 alias ll='ls -Alh'
 alias nano='nano --nowrap'
 alias unison='unison -ui text'
