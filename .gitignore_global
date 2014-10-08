@@ -36,6 +36,9 @@ release/
 
 # Ignores for Leiningen/SBT
 target/
+.lein-repl-history
+.lein-failures
+.lein-deps-sum
 .nrepl-port
 
 # Ignores for Ant/Gradle
@@ -44,3 +47,9 @@ build/
 gen/
 .gradle/
 local.properties
+
+# Ignores for IntelliJ IDEA
+.idea/
+.idea_modules/
+.history
+.projectFilesBackup/
