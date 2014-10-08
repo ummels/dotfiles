@@ -105,3 +105,12 @@ fi
 if [[ $OSNAME == "Darwin" ]]; then
 	export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
+
+# Add GitHub API token for Homebrew
+
+if [[ $OSNAME == "Darwin" ]]; then
+	file=$HOME/Development/.homebrew-token
+	if [ -f $file ]; then
+		export HOMEBREW_GITHUB_API_TOKEN=$(head -1 $file)
+	fi
+fi
