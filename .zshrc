@@ -7,16 +7,6 @@ export OSNAME=${uname%_*}
 typeset -U path
 typeset -U fpath
 
-# set PATH so that /usr/sbin is included under Cygwin
-if [[ $OSNAME == "CYGWIN" ]]; then
-	path=(/usr/sbin $path)
-fi
-
-# set PATH for Java under Cygwin
-if [[ $OSNAME == "CYGWIN" ]]; then
-	path=($JAVA_HOME/bin $path)
-fi
-
 # set PATH so it includes TexLive's bin
 if [[ $OSNAME == "Darwin" ]]; then
 	path=(/usr/local/texlive/current/bin/x86_64-darwin $path)
@@ -54,18 +44,7 @@ alias egrep='egrep --color=auto'
 # More aliases
 alias ll='ls -Alh'
 alias nano='nano --nowrap'
-alias unison='unison -ui text'
-if [[ $OSNAME == "CYGWIN" ]]; then
-	alias open=cygstart
-elif [[ $OSNAME == "Linux" ]]; then
-	alias open='xdg-open $@ 2>/dev/null'
-fi
 alias o=open
-
-# Auto-correction
-if [[ $OSNAME == "CYGWIN" ]]; then
-	alias ping='nocorrect ping' # corrected to PING otherwise.
-fi
 
 # Completion
 autoload -Uz compinit
@@ -94,17 +73,6 @@ fi
 
 # Set the default locale
 export LANG=en_GB.UTF-8
-
-# SSH agent configuration for Cygwin
-if [[ $OSNAME == "CYGWIN" ]]; then
-	if [ -f ~/.ssh-agent ]; then
-		. ~/.ssh-agent > /dev/null
-	fi
-	if [[ -n $SSH_PAGEANT_PID ]] && kill -0 $SSH_PAGEANT_PID 2>/dev/null; then true; else
-		ssh-pageant | sed 's/^echo/#echo/' > ~/.ssh-agent
-		. ~/.ssh-agent > /dev/null
-	fi
-fi
 
 # Add ANDROID_HOME under Darwin
 

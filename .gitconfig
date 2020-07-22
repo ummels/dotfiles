@@ -20,3 +20,14 @@
 	df = diff
 	dc = diff --cached
 	lg = log -p
+[transfer]
+        fsckobjects = true 
+[fetch]
+        fsckobjects = true 
+[receive] 
+        fsckObjects = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
