@@ -14,6 +14,11 @@ elif [[ $OSNAME == "Linux" ]]; then
 	path=(/home/shared/texlive/current/bin/x86_64-linux $path)
 fi
 
+# set PATH so it includes Homebrew's bin
+if [[ $OSNAME == "Darwin" ]]; then
+	path=(/opt/homebrew/bin $path)
+fi
+
 # set PATH so it includes user's private bin
 path=(~/bin $path)
 
@@ -80,11 +85,8 @@ if [[ $OSNAME == "Darwin" ]]; then
 	export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-# Add GitHub API token for Homebrew
+# Secret stuff
 
-if [[ $OSNAME == "Darwin" ]]; then
-	file=$HOME/Development/.homebrew-token
-	if [ -f $file ]; then
-		export HOMEBREW_GITHUB_API_TOKEN=$(head -1 $file)
-	fi
+if [ -r $HOME/.zshrc.secret ]; then
+	source $HOME/.zshrc.secret
 fi
