@@ -7,13 +7,6 @@ export OSNAME=${uname%_*}
 typeset -U path
 typeset -U fpath
 
-# set PATH so it includes TexLive's bin
-if [[ $OSNAME == "Darwin" ]]; then
-	path=(/usr/local/texlive/current/bin/x86_64-darwin $path)
-elif [[ $OSNAME == "Linux" ]]; then
-	path=(/home/shared/texlive/current/bin/x86_64-linux $path)
-fi
-
 # set PATH so it includes Homebrew's bin
 if [[ $OSNAME == "Darwin" ]]; then
 	path=(/opt/homebrew/bin $path)
