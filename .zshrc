@@ -9,7 +9,7 @@ typeset -U fpath
 
 # set PATH so it includes Homebrew's bin
 if [[ $OSNAME == "Darwin" ]]; then
-	path=(/opt/homebrew/bin /opt/homebrew/opt/ruby/bin $path)
+	path=(/opt/homebrew/sbin /opt/homebrew/bin /opt/homebrew/opt/ruby/bin $path)
 fi
 
 # set PATH so it includes user's private bin
