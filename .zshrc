@@ -69,9 +69,6 @@ if [[ $OSNAME == "Darwin" ]]; then
 	export COPYFILE_DISABLE=true
 fi
 
-# Set the default locale
-export LANG=en_GB.UTF-8
-
 # Add ANDROID_HOME under Darwin
 
 if [[ $OSNAME == "Darwin" ]]; then
