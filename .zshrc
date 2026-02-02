@@ -50,10 +50,16 @@ compinit
 # Use case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# Git integration
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats ' %b'
+
 # Prompt
+setopt PROMPT_SUBST
 autoload colors && colors
-PROMPT="%{$fg_bold[blue]%}%~\$%{$reset_color%} "
-RPROMPT="%{$fg_bold[blue]%}%n@%m%{$reset_color%}"
+PROMPT='%{$fg_bold[blue]%}%~%{$fg[red]%}${vcs_info_msg_0_}%{$fg_bold[black]%}%#%{$reset_color%} '
+RPROMPT='%{$fg[cyan]%}%n@%m%{$reset_color%}'
 
 # Automatically quote globs in URL and remote references
 __remote_commands=(scp rsync)
