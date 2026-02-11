@@ -53,13 +53,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Git integration
 autoload -Uz vcs_info
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats ' %b'
+zstyle ':vcs_info:git:*' formats '(%b)'
 
 # Prompt
 setopt PROMPT_SUBST
-autoload colors && colors
-PROMPT='%{$fg_bold[blue]%}%~%{$fg[red]%}${vcs_info_msg_0_}%{$fg_bold[black]%}%#%{$reset_color%} '
-RPROMPT='%{$fg[cyan]%}%n@%m%{$reset_color%}'
+PROMPT='%B%F{075}%~%f%F{215}${vcs_info_msg_0_}%f%F{246}%#%f%b '
+RPROMPT='%F{246}%n@%m%f'
 
 # Automatically quote globs in URL and remote references
 __remote_commands=(scp rsync)
