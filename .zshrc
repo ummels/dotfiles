@@ -43,6 +43,7 @@ alias egrep='egrep --color=auto'
 alias ll='ls -Alh'
 alias nano='nano --nowrap'
 alias o=open
+alias python=python3
 
 # Completion
 autoload -Uz compinit
